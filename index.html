@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de idade</title>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            padding: 2px;
+            text-align:center;
+            background-color: rgb(247, 206, 201);
+
+        }
+
+        .content{
+            margin-top: 100px;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #f05353;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .titulo{
+            color: #000000;
+            font-size: 24px;
+            font-weight: bold;      
+        }
+
+        .input input{
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #000000;
+            border-radius: 5px;
+
+        }
+
+        .botao input{
+            padding: 10px 10px;
+            font-size: 16px;
+            border: 2px solid #000000;
+            border-radius: 5px;
+        }
+
+        .resultado p {
+            font-size: 20px;
+            font-weight: bold;
+            color: red;
+            background-color: black;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 class="titulo">
+            Verificador de idade
+        </h1>
+
+        <div class="input">
+            <input type="text" id="idade" placeholder="Digite sua idade">
+        </div>
+        <br><br>
+        <div class="resultado">
+            <p id="res"></p>
+             </div>
+             <div class="botao">
+                <input type="button" value="Verificar" onclick="mostrar()">
+             </div>
+    </div>
+
+    
+
+    <script>
+        function mostrar(){
+            let idade = document.getElementById("idade").value
+            let res = document.getElementById("res")
+
+            idade = Number(idade.trim())
+
+            if(idade === 0){
+                res.innerHTML = "Por favro, Preencha o campo!!! "
+                return
+            }
+
+            if(isNaN(idade)){
+                res.innerHTML = "Por favor, somente numeros!!!"
+                return
+            }
+
+            if(idade < 18){
+                res.innerHTML = "Você é menor de idade ❌"
+                res.style.color = "red"
+            } else{
+                res.innerHTML = "Você é maior de idade ✅"
+                res.style.color = "green"
+            }
+        }
+    </script>
+</body>
+</html>
